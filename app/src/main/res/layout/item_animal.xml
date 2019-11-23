@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="animal"
+            type="com.serhankhan.animals.models.Animal" />
+
+        <variable
+            name="listener"
+            type="com.serhankhan.animals.view.AnimalClickListener" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/animalLayout"
+        android:onClick="@{listener::onClick}"
+        android:layout_width="match_parent"
+        android:tag="@{animal.name}"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/animalImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:imageUrl="@{animal.imageUrl}"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+        <TextView
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#afff"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="@{animal.name}"
+            app:layout_constraintBottom_toBottomOf="@+id/animalImage"
+            app:layout_constraintEnd_toEndOf="@+id/animalImage"
+            app:layout_constraintStart_toStartOf="@+id/animalImage" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
